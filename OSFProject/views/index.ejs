@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include partials/template/head.ejs %>
+  </head>
+  <body>
+  	<% include partials/template/header.ejs %>
+    <% if (universal.length !== 1) { %>
+    <h2 align="center">Please select a category !</h2>
+    <% } %>
+    <% if (universal.length == 1) { %>
+        <% include partials/template/map.ejs %>
+    <% } %>
+    <br>
+  	<br>
+  	<br>
+
+  	<div class="Main-Category Description">
+    <% if (universal.length == 1) {%>
+  	<h2>Main Category Description</h2>
+  		<p>
+
+            <%= universal[0].page_description %>
+  		</p>
+        <% } %>
+  	</div><!-- Descrierea categoriei-->
+
+    <div class="Subcategory"> 
+    <% if (universal.length == 1 ) {%>
+        <h2>Subcategories</h2>
+
+            <% for (var b=0;b<universal[0].categories.length;b++){ %>
+
+                <% if (universal[0].categories[b].image !== undefined){ %>
+                <p>
+                <img src="/images/<%= universal[0].categories[b].image %>" alt="Image not found" width="100%" height="140">
+                </p>
+                
+                <% } %>
+                <br>
+                <br>
+                <p align="center"> 
+                <%= universal[0].categories[b].page_description %>
+                </p>
+                <br>
+
+                <button class="circular">
+                <a class="normal" href="/<%= universal[0].id %>/<%= universal[0].categories[b].id %>">View Products</a>
+                    
+                </button >
+                <p class="bordered">
+                </p>
+                <br>
+                <br>
+            <% } %>
+    <% } %>
+    </div><!--Subcategory-->
+   <!-- <section class="layout">
+	    <div class="primary">
+	    	<div>
+	    		Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quod, praesentium dolor velit culpa cupiditate odio nihil voluptates aliquid eum dolore eligendi quas nobis nam nesciunt odit pariatur minus cum.
+	    	</div>
+	    </div><!--primary-->
+	   <!--  <br>
+
+	    <aside class="secondary">
+	    		<div>
+	    		Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quod, praesentium dolor velit culpa cupiditate odio nihil voluptates aliquid eum dolore eligendi quas nobis nam nesciunt odit pariatur minus cum.
+	    		</div>
+	    </aside><!--secondary
+    </section><!--layout-->
+    <% include partials/template/footer.ejs %>
+    <% include partials/template/jsdefaults.ejs %>
+  </body>
+</html>

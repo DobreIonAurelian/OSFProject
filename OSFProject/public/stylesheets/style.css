@@ -1,0 +1,35 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+
+}
+.normal{
+	color:black;
+	text-decoration: none;
+}
+header {
+	border-width: 5px;
+	border-color: black;
+	border: solid;
+}
+footer {
+	border-top: solid;
+	border-color: black;
+}
+h2,h3,h4{
+	color:red;
+}
+#pressed{
+	background-color: red;
+}
+.bordered{
+	border-bottom: solid;
+}
+.circular{
+	border:solid;
+	border-radius:15px;
+}

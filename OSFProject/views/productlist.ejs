@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include partials/template/head.ejs %>
+  </head>
+  <body>
+  	<% include partials/template/header.ejs %>
+    <% if (universal.length > 0) { %>
+        <% include partials/template/map.ejs %>
+    <% } %>
+    <br>
+  	<br>
+  	<br>
+    <div class="Product list"> 
+    <% if (universal.length > 0 ) {%>
+
+            <% for (var b=0;b<universal.length;b++){ %>
+                <div class="row" align="center" style="display:inline-block">
+                <h3><%= universal[b].name %></h3>
+                <% if (universal[b].image_groups[0].images[0].link != undefined){ %>
+                <p>
+                <img src="/images/<%= universal[b].image_groups[0].images[0].link %>" alt="Image not found" width="100%" height="140">
+                </p>
+                
+                <% } %>
+                <br>
+                <br>
+                <p align="center"> 
+                <%= universal[b].short_description %>
+                </p>
+                <p align="left">
+                <br>
+                <button class="circular" >
+                <a class="normal" href="/<%= universal[b].primary_category_id.substring(0,universal[b].primary_category_id.indexOf("-"))  %>/<%= universal[b].primary_category_id.substring(0,universal[b].primary_category_id.lastIndexOf("-")) %>/<%= universal[b].primary_category_id %>/<%= universal[b].id%>">View Product</a>
+                </button>
+                </p>
+                <br>
+                <br>
+                </div><!-- ROW -->
+            <% } %>
+
+    <% } %>
+    </div>
+
+    <% include partials/template/footer.ejs %>
+    <% include partials/template/jsdefaults.ejs %>
+  </body>
+</html>

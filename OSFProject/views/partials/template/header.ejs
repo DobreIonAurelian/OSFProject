@@ -1,0 +1,65 @@
+<header>
+	<h1>
+	Project
+		<% if (universal.length == 1) {%>
+				<% if (universal[0].primary_category_id === undefined ){ %>
+			        <% if (universal[0].id.indexOf("womens") == 0 || universal[0].parent_category_id.indexOf("womens") == 0) { %>
+						<button id="pressed" class="circular" style="float:right;margin-right:15px">
+						<a class="normal" href="/womens">Women</a>
+						</button>
+						<button class="circular" style="float:right;margin-right:15px">
+						<a class="normal" href="/mens">Men</a>
+						</button>
+					<% } %>
+
+				<% } %>
+				
+				<% if (universal[0].parent_category_id === undefined ){ %>
+			        <% if (universal[0].id.indexOf("womens") == 0 || universal[0].primary_category_id.indexOf("womens") == 0) { %>
+						<button id="pressed" class="circular" style="float:right;margin-right:15px">
+						<a class="normal" href="/womens">Women</a>
+						</button>
+						<button class="circular" style="float:right;margin-right:15px">
+						<a class="normal" href="/mens">Men</a>
+						</button>
+					<% } %>
+
+				<% } %>		
+
+				<% if (universal[0].primary_category_id === undefined ){ %>
+					<% if (universal[0].id.indexOf("mens") == 0 || universal[0].parent_category_id.indexOf("mens") == 0) { %>
+						<button class="circular" style="float:right;margin-right:15px">
+						<a class="normal" href="/womens">Women</a>
+						</button>
+						<button id="pressed" class="circular" style="float:right;margin-right:15px">
+						<a class="normal" href="/mens">Men</a>
+						</button>
+					<% } %>	
+				<% } %>
+				<% if (universal[0].parent_category_id === undefined ){ %>
+					<% if (universal[0].id.indexOf("mens") == 0 || universal[0].primary_category_id.indexOf("mens") == 0) { %>
+						<button class="circular" style="float:right;margin-right:15px">
+						<a class="normal" href="/womens">Women</a>
+						</button>
+						<button id="pressed" class="circular" style="float:right;margin-right:15px">
+						<a class="normal" href="/mens">Men</a>
+						</button>
+					<% } %>	
+				<% } %>
+
+	<% } %>
+		<% if (universal.length != 1) {%>
+			<button class="circular" style="float:right;margin-right:15px">
+						<a class="normal" href="/womens">Women</a>
+						</button>
+						<button class="circular" style="float:right;margin-right:15px">
+						<a class="normal" href="/mens">Men</a>
+						</button>
+		<% } %>
+		
+
+		</h1>
+</header>
+<br>
+
+<!-- Ar trebui sa fac hrefuri cu javascript pt linkuri path'ului actual in care se afla userul-->

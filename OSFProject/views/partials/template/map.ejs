@@ -1,0 +1,29 @@
+<h3>
+<a href="/"> Home</a> 
+
+  	<% if (universal.length == 1) { %>
+  			<% if ( universal[0].parent_category_id == "root") {%>
+        	\ <a href="/<%= universal[0].id %>"> <%= universal[0].id %></a>
+        	<% } %>
+
+          <% if (universal[0].primary_category_id === undefined) { %>
+          	<% if ( universal[0].parent_category_id != "root") {%>
+          	\ <a href="/<%= universal[0].parent_category_id %>\<%= universal[0].id %> ">  <%= universal[0].id %> </a>
+          	<% } %>
+        	<% } %>
+          <% if (universal[0].parent_category_id === undefined) { %>
+           \ <a href="/<%= universal[0].primary_category_id.substring(0,universal[0].primary_category_id.indexOf("-"))  %>/<%= universal[0].primary_category_id.substring(0,universal[0].primary_category_id.lastIndexOf("-")) %>/<%= universal[0].primary_category_id %>" ><%= universal[0].primary_category_id %></a> \ <a href="/<%= universal[0].primary_category_id.substring(0,universal[0].primary_category_id.indexOf("-"))  %>/<%= universal[0].primary_category_id.substring(0,universal[0].primary_category_id.lastIndexOf("-")) %>/<%= universal[0].primary_category_id %>/<%= universal[0].id%>">  <%= universal[0].name %> </a>
+          <% } %>
+    <% } %>
+      	<% if (universal.length > 1) { %>
+  			<% if ( universal[0].primary_category_id == "root") {%>
+        	\ <a href="/<%= universal[0].id %>"> <%= universal[0].id %></a>
+        	<% } %>
+        	<% if ( universal[0].primary_category_id != "root") {%>
+        	\ <a href="/<%= universal[0].primary_category_id.substring(0,universal[0].primary_category_id.indexOf("-"))  %>/<%= universal[0].primary_category_id.substring(0,universal[0].primary_category_id.lastIndexOf("-")) %>/<%= universal[0].primary_category_id %>" ><%= universal[0].primary_category_id %></a>
+        	<% } %>
+    <% } %>
+
+</h3>
+
+<!--Harta pentru site(Category_parent) -->

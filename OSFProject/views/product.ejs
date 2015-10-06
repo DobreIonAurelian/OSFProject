@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include partials/template/head.ejs %>
+  </head>
+  <body>
+  	<% include partials/template/header.ejs %>
+    <% if (universal.length > 0) { %>
+        <% include partials/template/map.ejs %>
+    <% } %>
+    <br>
+  	<br>
+  	<br>
+    <div class="Product"> 
+    <% if (universal.length > 0 ) {%>
+                <p>
+                <img align="left" src="/images/<%= universal[0].image_groups[0].images[0].link %>" alt="Image not found" width="100%" height="140">
+                <p align="right"><%= universal[0].long_description%></p>
+                </p>
+                <button>Buy Now!</button>
+                
+                
+                <form id="Currencyexchange" action="/<%= universal[0].primary_category_id.substring(0,universal[0].primary_category_id.indexOf("-"))  %>/<%= universal[0].primary_category_id.substring(0,universal[0].primary_category_id.lastIndexOf("-")) %>/<%= universal[0].primary_category_id %>/<%= universal[0].id%>/" method="get">
+                <% if (moneda === undefined ) {%>
+                <% }%>
+                <% else {%>
+                        <% if (moneda=="RON" ) { %>
+                         Price:  <%= universal[0].price%>
+                         <% }%>
+                         <% if (moneda=="EUR" ) { %>
+                         Price:  <%= universal[0].price*4.5 %>
+                         <% }%>
+                         <% if (moneda=="USD" ) { %>
+                         Price:  <%= universal[0].price*3.9 %>
+                         <% }%>
+                <% }%>
+                <select class="currency" data-style="btn-info" name="Currency">
+                    <optgroup label="Currency">
+                        <option name="Ron" value="RON">Ron</option>
+                        <option name="EUR" value="EUR">Euro</option>
+                        <option name="USD" value="USD">USD</option>
+                       
+                    </optgroup>
+                </select>
+                <input type="submit" />
+</form>    
+                 
+
+    <% } %>
+    </div>
+
+    <% include partials/template/footer.ejs %>
+    <% include partials/template/jsdefaults.ejs %>
+  </body>
+</html>
